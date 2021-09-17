@@ -1,0 +1,11 @@
+root:
+  - "*"
+
+design-system:
+  - packages/design-system/**/*
+
+eslint-config:
+  - packages/eslint-config/**/*
+
+prettier-config:
+  - packages/prettier-config/**/*
