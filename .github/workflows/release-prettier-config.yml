@@ -2,6 +2,8 @@ name: Publish Prettier Config
 
 on:
   push:
+    branches:
+      - main
     paths:
       - packages/prettier-config/**
 
@@ -20,7 +22,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           registry: https://npm.pkg.github.com/
           package: packages/prettier-config/package.json
-          access: "restricted"
 
       - name: Create tag
         if: steps.publish.outputs.type != 'none'
