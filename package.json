@@ -1,0 +1,17 @@
+{
+  "name": "packages",
+  "description": "My packages",
+  "version": "1.0.0",
+  "author": {
+    "email": "tienphat1501@gmail.com",
+    "name": "Phát Mai"
+  },
+  "repository": {
+    "url": "https://github.com/lPaths/packages",
+    "type": "git"
+  },
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
