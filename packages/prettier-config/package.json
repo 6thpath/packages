@@ -8,8 +8,8 @@
     "name": "Phát Mai"
   },
   "repository": {
-    "url": "https://github.com/6thpath/packages/prettier-config",
-    "type": "git"
+    "type": "git",
+    "url": "https://github.com/6thpath/packages.git"
   },
   "publishConfig": {
     "@6thpath:registry": "https://npm.pkg.github.com/"
