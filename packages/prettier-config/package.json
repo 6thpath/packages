@@ -1,5 +1,5 @@
 {
-  "name": "@lpaths/prettier-config",
+  "name": "@6thpath/prettier-config",
   "description": "Prettier config",
   "version": "1.0.0",
   "license": "MIT",
@@ -8,11 +8,11 @@
     "name": "Phát Mai"
   },
   "repository": {
-    "url": "https://github.com/lPaths/packages/prettier-config",
+    "url": "https://github.com/6thpath/packages/prettier-config",
     "type": "git"
   },
   "publishConfig": {
-    "@lPaths:registry": "https://npm.pkg.github.com/"
+    "@6thpath:registry": "https://npm.pkg.github.com/"
   },
   "main": ".prettierrc.json"
 }

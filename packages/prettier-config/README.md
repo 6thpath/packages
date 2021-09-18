@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-yarn add @lpaths/prettier-config --dev
+yarn add @6thpath/prettier-config --dev
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ yarn add @lpaths/prettier-config --dev
 ```jsonc
 {
   // ...
-  "prettier": "@lpaths/prettier-config"
+  "prettier": "@6thpath/prettier-config"
   // ...
 }
 ```
