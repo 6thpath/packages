@@ -8,7 +8,7 @@
     "name": "Phát Mai"
   },
   "repository": {
-    "url": "https://github.com/funsideprojects/packages/prettier-config",
+    "url": "https://github.com/lPaths/packages/prettier-config",
     "type": "git"
   },
   "publishConfig": {
