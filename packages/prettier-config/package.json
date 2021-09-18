@@ -12,7 +12,7 @@
     "type": "git"
   },
   "publishConfig": {
-    "registry": "@lPaths:registry=https://npm.pkg.github.com/"
+    "@lPaths:registry": "https://npm.pkg.github.com/"
   },
   "main": ".prettierrc.json"
 }
