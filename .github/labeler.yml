@@ -1,6 +1,9 @@
 root:
   - "*"
 
+workflows:
+  - .github/workflows/*
+
 design-system:
   - packages/design-system/**/*
 
