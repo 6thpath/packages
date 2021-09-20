@@ -1,0 +1,63 @@
+name: Publish Eslint Config
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - packages/eslint-config/**
+
+jobs:
+  Publish-Package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Publish
+        id: publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          registry: https://npm.pkg.github.com/
+          package: packages/eslint-config/package.json
+
+      - name: Create tag
+        if: steps.publish.outputs.type != 'none'
+        uses: actions/github-script@v4
+        env:
+          NEXT_VERSION: ${{ steps.publish.outputs.version }}
+        with:
+          script: |
+            const newTag = `eslint-config-v${process.env.NEXT_VERSION}`
+
+            try {
+              core.debug(`Tagging #${context.sha} with tag ${newTag}`);
+
+              github.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `refs/tags/${newTag}`,
+                sha: context.sha
+              })
+            } catch (error) {
+              core.error(error);
+              core.setFailed(error.message);
+            }
+
+      - name: Create Release
+        if: steps.publish.outputs.type != 'none'
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: eslint-config-v${{ steps.publish.outputs.version }}
+          body: |
+            Version ${{ steps.publish.outputs.version }}
+          draft: true
+          prerelease: false
+
+      - name: Log release URL
+        if: steps.publish.outputs.type != 'none'
+        run: |
+          echo "Release URL: ${{ steps.create_release.outputs.url }}"
