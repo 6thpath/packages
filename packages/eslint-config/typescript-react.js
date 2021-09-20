@@ -28,7 +28,7 @@ module.exports = merge(
       'react/no-multi-comp': ['error', { ignoreStateless: true }],
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
-      'react/jsx-boolean-value': 'never',
+      'react/jsx-boolean-value': 'error',
     },
     ignorePatterns: ['node_modules', 'build', 'dist', 'public'],
   },
