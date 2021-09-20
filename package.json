@@ -2,6 +2,7 @@
   "name": "packages",
   "description": "My packages",
   "version": "1.0.0",
+  "private": true,
   "author": {
     "email": "tienphat1501@gmail.com",
     "name": "Phát Mai"
@@ -10,7 +11,9 @@
     "url": "https://github.com/6thpath/packages",
     "type": "git"
   },
-  "private": true,
+  "engines": {
+    "node": ">=14"
+  },
   "devDependencies": {
     "lerna": "^4.0.0"
   }
