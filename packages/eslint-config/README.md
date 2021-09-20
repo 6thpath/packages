@@ -30,13 +30,13 @@ yarn add @6thpath/eslint-config eslint typescript --dev
   }
   ```
 
-- Install [VSCode Eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- Install [VSCode Prettier ESLint extension](https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint)
   - (Optional) Configure Recommended Extensions _.vscode/extensions.json_
 
   ```jsonc
     {
       "recommendations": [
-        "dbaeumer.vscode-eslint"
+        "rvest.vs-code-prettier-eslint"
       ]
     }
   ```
@@ -53,7 +53,8 @@ yarn add @6thpath/eslint-config eslint typescript --dev
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
 }
 ```
 
