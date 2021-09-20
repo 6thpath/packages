@@ -1,0 +1,57 @@
+{
+  "name": "@6thpath/design-system",
+  "version": "0.0.1",
+  "license": "GNU GPL V3.0",
+  "author": {
+    "email": "tienphat1501@gmail.com",
+    "name": "Phát Mai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/6thpath/packages.git"
+  },
+  "publishConfig": {
+    "@6thpath:registry": "https://npm.pkg.github.com/"
+  },
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./": "./css/"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "lint": "eslint '**/*.{js,ts,tsx}' --quiet --fix"
+  },
+  "dependencies": {
+    "@ctrl/tinycolor": "3.4.0",
+    "@tailwindcss/forms": "0.3.3",
+    "@tailwindcss/line-clamp": "0.2.1",
+    "@tailwindcss/postcss7-compat": "2.2.14",
+    "autoprefixer": "9",
+    "deepmerge": "4.2.2",
+    "postcss": "7",
+    "postcss-custom-properties": "10",
+    "postcss-import": "12",
+    "postcss-nested": "4",
+    "prettier-eslint": "^13.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.2.14"
+  },
+  "devDependencies": {
+    "@6thpath/eslint-config": "^1.0.0",
+    "eslint": "7.32.0",
+    "husky": "7.0.2",
+    "lint-staged": "11.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}
