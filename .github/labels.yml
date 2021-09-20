@@ -1,15 +1,19 @@
 - name: root
-  description: Something changes monorepo root
+  description: Something changed monorepo root
   color: 73c0ff
 
+- name: github-workflows
+  description: Something changed in github-workflows configuration
+  color: 69a2ff
+
 - name: design-system
-  description: Something changes in design-system package
+  description: Something changed in design-system package
   color: 35a2b3
 
 - name: eslint-config
-  description: Something changes in eslint-config package
+  description: Something changed in eslint-config package
   color: 4b32c2
 
 - name: prettier-config
-  description: Something changes in prettier-config package
+  description: Something changed in prettier-config package
   color: efb43b
