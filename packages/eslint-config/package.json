@@ -1,7 +1,7 @@
 {
   "name": "@6thpath/eslint-config",
   "description": "Eslint config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": {
     "email": "tienphat1501@gmail.com",
@@ -16,9 +16,9 @@
   },
   "main": "typescript.js",
   "dependencies": {
-    "@6thpath/prettier-config": "^1.0.0",
-    "@typescript-eslint/eslint-plugin": "4.31.1",
-    "@typescript-eslint/parser": "4.31.1",
+    "@6thpath/prettier-config": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "4.31.2",
+    "@typescript-eslint/parser": "4.31.2",
     "deepmerge": "4.2.2",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "typescript": "4.2.4"
+    "typescript": "4.4.3"
   },
   "peerDependencies": {
     "eslint": ">=7",
