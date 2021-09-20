@@ -1,6 +1,6 @@
 {
   "name": "@6thpath/design-system",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "GNU GPL V3.0",
   "author": {
     "email": "tienphat1501@gmail.com",
@@ -39,7 +39,7 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.2.14"
   },
   "devDependencies": {
-    "@6thpath/eslint-config": "^1.0.0",
+    "@6thpath/eslint-config": "^1.0.1",
     "eslint": "7.32.0",
     "husky": "7.0.2",
     "lint-staged": "11.1.2"
@@ -50,8 +50,6 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,ts,tsx}": [
-      "eslint --fix"
-    ]
+    "**/*.{js,ts,tsx}": ["eslint --fix"]
   }
 }
