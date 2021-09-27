@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@6thpath/prettier-config@^1.0.1":
-  version "1.0.1"
-  resolved "https://npm.pkg.github.com/download/@6thpath/prettier-config/1.0.1/6af02d7f12ba08243b12ed6bf634bb0fb52c9e4df1240c94a6f230a36df7f854#61b8ed81673032a40a4b710797a6b142a01090dc"
-  integrity sha512-RmF00npnfKxQTUf+FVW4RXMAvUVhus0QRIrWabELDLCsfUNLiA9J4fxIWeY6Qvunzo5SivBJFVCX1zp3I1bbtw==
-
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
