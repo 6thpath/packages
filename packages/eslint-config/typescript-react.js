@@ -17,6 +17,8 @@ module.exports = merge(
     },
     extends: ['plugin:react/recommended'],
     rules: {
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-var-requires': 'off',
       'react/boolean-prop-naming': 'warn',
       'react/function-component-definition': [
         'error',
@@ -30,6 +32,15 @@ module.exports = merge(
       'react/prop-types': 'off',
       'react/jsx-boolean-value': 'error',
     },
+    overrides: [
+      {
+        files: ['*.ts', '*.tsx'],
+        rules: {
+          '@typescript-eslint/explicit-module-boundary-types': ['warn'],
+          '@typescript-eslint/no-var-requires': 'error',
+        },
+      },
+    ],
     ignorePatterns: ['node_modules', 'build', 'dist', 'public'],
   },
   {
