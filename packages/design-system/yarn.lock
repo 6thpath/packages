@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@6thpath/eslint-config@^1.0.1":
-  version "1.0.1"
-  resolved "https://npm.pkg.github.com/download/@6thpath/eslint-config/1.0.1/5693cd81997e8db9f17688a8c5537d6a61eaf6cc812a6196e6786125722de92f#4d4a64c47447e6079529a88ce4de174aff6845e9"
-  integrity sha512-QGbpW5ugSr7WF/eb9dXV+krC6XfVyqEbG/IAkI+agnjXWmSn4nAvz8ISaQabzKYO3IpEWx+5h9YVabC86mND1w==
+"@6thpath/eslint-config@^1.0.2":
+  version "1.0.2"
+  resolved "https://npm.pkg.github.com/download/@6thpath/eslint-config/1.0.2/586751856505d1907ed884d2d5bd6b87b3f5ddafd50cc5343a46b22032dbe79c#ea7b6ddb297ea991118ccd22c71cffd8df7faf9b"
+  integrity sha512-Cw1sGEWELczzYiKae4y1/LA/MzxMo68BXf9ga0dbKI55XdmalD09hYyLOBtFM+H0Vpr5gvyTUxfwcKQtgHzUSg==
   dependencies:
     "@6thpath/prettier-config" "^1.0.1"
     "@typescript-eslint/eslint-plugin" "4.31.2"
@@ -116,10 +116,10 @@
   resolved "https://registry.npmjs.org/@tailwindcss/line-clamp/-/line-clamp-0.2.1.tgz#efafe556719c26a3926f0679a98307c4bc9270d2"
   integrity sha512-Hq2KJY1+T2v7jw/mnT3mnC7CKbp5kj1XTqzSb2xbEt1j+JkxIR6N3ijsN/WevZtsKJfVE1KOejA/3IRKuhZEsQ==
 
-"@tailwindcss/postcss7-compat@2.2.14", "tailwindcss@npm:@tailwindcss/postcss7-compat@2.2.14":
-  version "2.2.14"
-  resolved "https://registry.npmjs.org/@tailwindcss/postcss7-compat/-/postcss7-compat-2.2.14.tgz#bdd82d75cbc6b596519f2bd54c1047a615e06366"
-  integrity sha512-vtzYILqywIY1GWELwHVF7goPhaJpm/1P5kJZ0Kx8lNlarALTFEWwIWCM6MxQ7pXzDWa1eUeozVJVeqfOBXKwXg==
+"@tailwindcss/postcss7-compat@2.2.16", "tailwindcss@npm:@tailwindcss/postcss7-compat@2.2.16":
+  version "2.2.16"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/postcss7-compat/-/postcss7-compat-2.2.16.tgz#ba4143e25e0926fc5db0a2b459a3b34dbf8158ff"
+  integrity sha512-k+f6DL1KxG0d2dEUILxytWpHRBPMagQ8wUdH5bJUzbmv7TPd3yriR+nSOXy2Hcvt79cP3Lgc5J6oPjO4PNyRLg==
   dependencies:
     arg "^5.0.1"
     autoprefixer "^9"
