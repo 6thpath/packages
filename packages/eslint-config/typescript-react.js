@@ -15,7 +15,7 @@ module.exports = merge(
         version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
       },
     },
-    extends: ['plugin:react/recommended'],
+    extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
     rules: {
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-var-requires': 'off',
