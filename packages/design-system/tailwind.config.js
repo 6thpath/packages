@@ -36,7 +36,12 @@ const baseConfig = {
       textColor: ['active', 'disabled'],
     },
   },
-  plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/forms'), buttonPlugin, baseTypographyPlugin],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/forms'),
+    buttonPlugin,
+    baseTypographyPlugin,
+  ],
 }
 
 function generateTailwindConfig(config = {}) {

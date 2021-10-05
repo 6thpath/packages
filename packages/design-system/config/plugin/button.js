@@ -6,7 +6,7 @@ const plugin = require('tailwindcss/plugin')
 const genericStyle = ['font-semibold', 'transition-all', 'outline-none', 'focus:outline-none']
 
 /**
- * [type(size), style[height, borderRadius, padding-horizontal, font-size, line-height]]
+ * [type(size), style[minHeight, borderRadius, padding-horizontal, font-size, line-height]]
  */
 const buttonSizes = [
   ['sm', [24, 5, 12, 12, 16]],
@@ -54,33 +54,38 @@ const buttonTypes = [
 
 const buttonPlugin = plugin(({ addComponents, prefix, theme }) => {
   return addComponents(
-    buttonSizes.reduce((config, [size, [height, borderRadius, paddingHorizontal, fontSize, lineHeight]]) => {
-      return (
-        buttonTypes.map(([type, normalStyle, hoverStyle, focusStyle, activeStyle, disabledStyle]) => {
-          const styles = [
-            ...genericStyle,
-            `px-${paddingHorizontal}`,
-            ...normalStyle,
-            ...hoverStyle,
-            ...focusStyle,
-            ...activeStyle,
-            ...disabledStyle,
-          ].join(' ')
+    buttonSizes.reduce(
+      (config, [size, [minHeight, borderRadius, paddingHorizontal, fontSize, lineHeight]]) => {
+        return (
+          buttonTypes.map(
+            ([type, normalStyle, hoverStyle, focusStyle, activeStyle, disabledStyle]) => {
+              const styles = [
+                ...genericStyle,
+                `px-${paddingHorizontal}`,
+                ...normalStyle,
+                ...hoverStyle,
+                ...focusStyle,
+                ...activeStyle,
+                ...disabledStyle,
+              ].join(' ')
 
-          return (
-            (config[prefix(`.button-${type}-${size}`)] = {
-              [`@apply ${styles}`]: {},
-              height,
-              borderRadius: theme(`borderRadius.${borderRadius}`),
-              fontSize: theme(`fontSize.${fontSize}`),
-              lineHeight: theme(`lineHeight.${lineHeight}`),
-            }),
-            type
-          )
-        }),
-        config
-      )
-    }, {})
+              return (
+                (config[prefix(`.button-${type}-${size}`)] = {
+                  [`@apply ${styles}`]: {},
+                  minHeight,
+                  borderRadius: theme(`borderRadius.${borderRadius}`),
+                  fontSize: theme(`fontSize.${fontSize}`),
+                  lineHeight: theme(`lineHeight.${lineHeight}`),
+                }),
+                type
+              )
+            }
+          ),
+          config
+        )
+      },
+      {}
+    )
   )
 })
 

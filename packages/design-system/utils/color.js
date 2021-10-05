@@ -139,7 +139,11 @@ function generate(color, opts = {}) {
   if (opts.theme === 'dark') {
     return darkColorMap.map(({ index, opacity }) => {
       const darkColorString = toHex(
-        mix(inputToRGB(opts.backgroundColor || '#141414'), inputToRGB(patterns[index]), opacity * 100)
+        mix(
+          inputToRGB(opts.backgroundColor || '#141414'),
+          inputToRGB(patterns[index]),
+          opacity * 100
+        )
       )
 
       return darkColorString
