@@ -1,7 +1,7 @@
 {
   "name": "@6thpath/eslint-config",
   "description": "Eslint config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "author": {
     "email": "tienphat1501@gmail.com",
@@ -16,13 +16,13 @@
   },
   "main": "typescript.js",
   "dependencies": {
-    "@6thpath/prettier-config": "^1.0.1",
-    "@typescript-eslint/eslint-plugin": "4.32.0",
-    "@typescript-eslint/parser": "4.32.0",
+    "@6thpath/prettier-config": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
     "deepmerge": "4.2.2",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-react": "7.26.0",
+    "eslint-plugin-react": "7.26.1",
     "eslint-plugin-react-hooks": "4.2.0",
     "prettier": "2.4.1"
   },
