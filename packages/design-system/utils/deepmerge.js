@@ -14,6 +14,7 @@ const combineMerge = (target, source, options) => {
       destination.push(item)
     }
   })
+
   return destination
 }
 

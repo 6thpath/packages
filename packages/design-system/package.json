@@ -1,6 +1,6 @@
 {
   "name": "@6thpath/design-system",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "GNU GPL V3.0",
   "author": {
     "email": "tienphat1501@gmail.com",
@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@ctrl/tinycolor": "3.4.0",
-    "@tailwindcss/forms": "0.3.3",
-    "@tailwindcss/line-clamp": "0.2.1",
+    "@tailwindcss/forms": "0.3.4",
+    "@tailwindcss/line-clamp": "0.2.2",
     "@tailwindcss/postcss7-compat": "2.2.16",
     "autoprefixer": "9",
     "deepmerge": "4.2.2",
@@ -39,11 +39,16 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.2.16"
   },
   "devDependencies": {
-    "@6thpath/eslint-config": "^1.0.2",
+    "@6thpath/eslint-config": "^1.0.4",
     "eslint": "7.32.0",
     "husky": "7.0.2",
-    "lint-staged": "11.1.2"
+    "lint-staged": "11.2.0"
   },
+  "eslintConfig": {
+    "root": true,
+    "extends": "@6thpath/eslint-config/common"
+  },
+  "prettier": "@6thpath/prettier-config",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
