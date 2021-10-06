@@ -21,7 +21,11 @@ jobs:
         with:
           node-version: "14"
           cache: "yarn"
-      - run: |
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Compile Typescript types
+        run: |
           yarn install
           yarn compile
         working-directory: packages/design-system
