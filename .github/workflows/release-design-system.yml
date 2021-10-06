@@ -21,11 +21,12 @@ jobs:
         with:
           node-version: "14"
           cache: "yarn"
-      - run: yarn install
-        working-directory: packages/design-system
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      - run: yarn compile
+      - run: |
+          echo "@6thpath:registry=https://npm.pkg.github.com/" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_ACCESS_TOKEN }}" > .npmrc
+
+          yarn install
+          yarn compile
         working-directory: packages/design-system
 
       - name: Publish
