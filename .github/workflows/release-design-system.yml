@@ -21,11 +21,12 @@ jobs:
         with:
           node-version: "14"
           cache: "yarn"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
-      - name: Compile Typescript types
+      - name: Setup and compile Typescript types
         run: |
+          echo "@6thpath:registry=https://npm.pkg.github.com/" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+
           yarn install
           yarn compile
         working-directory: packages/design-system
