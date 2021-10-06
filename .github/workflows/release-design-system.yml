@@ -21,7 +21,9 @@ jobs:
           node-version: "14"
           cache: "yarn"
       - run: yarn install
+        working-directory: packages/design-system
       - run: yarn compile
+        working-directory: packages/design-system
 
       - name: Publish
         id: publish
