@@ -1,6 +1,7 @@
 name: Publish Eslint Config
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
