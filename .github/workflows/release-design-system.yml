@@ -24,6 +24,7 @@ jobs:
 
       - name: Setup and compile Typescript types
         run: |
+          echo "always-auth=true" > ~/.npmrc
           echo "@6thpath:registry=https://npm.pkg.github.com/" > ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_ACCESS_TOKEN }}" > ~/.npmrc
 
