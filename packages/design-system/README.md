@@ -12,7 +12,24 @@ module.exports = require('@6thpath/design-system').postcssConfig.baseConfig
 
 ### Advanced
 
-- Install [VSCode Tailwindcss extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- Install [Tailwindcss extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) and [postcss-sugarss-language extension](https://marketplace.visualstudio.com/items?itemName=mhmadhamster.postcss-language)
+
+  - Add these settings to _.vscode/settings.json_
+
+  ```jsonc
+    {
+      "files.associations": {
+        "*.css": "postcss"
+      },
+      "emmet.includeLanguages": {
+        "postcss": "css",
+      },
+      "css.validate": false,
+      "editor.quickSuggestions": {
+        "strings": true
+      },
+    }
+  ```
 
 - Create `tailwind.config.js` **(for VSCode intellisense purpose)**
 
@@ -36,9 +53,9 @@ module.exports = require('@6thpath/design-system').postcssConfig.baseConfig
 
   ```js
   module.exports = require('@6thpath/design-system').postcssConfig.generatePostCSSConfig({
-    newTailwindConfig: require('./tailwind.config'),
+    tailwindConfig: require('./tailwind.config'),
     postcssConfig: {
-      // ...
+      // postcss configs
     },
   })
   ```

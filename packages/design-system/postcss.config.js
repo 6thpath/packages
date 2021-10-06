@@ -1,6 +1,6 @@
 const merge = require('deepmerge')
 
-const { combineMerge } = require('./utils/deepmerge')
+const { overwriteMerge } = require('./utils/deepmerge')
 const { isEmptyObject } = require('./utils/object')
 
 const baseConfig = {
@@ -13,14 +13,14 @@ const baseConfig = {
   ],
 }
 
-function generatePostCSSConfig(config = { newTailwindConfig: {}, postcssConfig: {} }) {
-  if (config.newTailwindConfig && !isEmptyObject(config.newTailwindConfig)) {
-    baseConfig.plugins[1] = require('tailwindcss')(config.newTailwindConfig)
+function generatePostCSSConfig(config = { tailwindConfig: {}, postcssConfig: {} }) {
+  if (config.tailwindConfig && !isEmptyObject(config.tailwindConfig)) {
+    baseConfig.plugins[1] = require('tailwindcss')(config.tailwindConfig)
   }
 
   if (config.postcssConfig && !isEmptyObject(config.postcssConfig)) {
     return merge(baseConfig, config.postcssConfig, {
-      arrayMerge: combineMerge,
+      arrayMerge: overwriteMerge,
     })
   }
 
