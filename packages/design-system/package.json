@@ -15,6 +15,9 @@
   },
   "main": "index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "exports": {
     ".": "./index.js",
     "./": "./css/"
@@ -23,7 +26,6 @@
     "node": ">=14"
   },
   "scripts": {
-    "postinstall": "tsc",
     "compile": "tsc",
     "lint": "eslint '**/*.{js,ts,tsx}' --quiet --fix"
   },

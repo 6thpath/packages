@@ -26,7 +26,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Setup and compile Typescript types
-        run: yarn install
+        run: |
+          yarn install
+          yarn compile
         working-directory: packages/design-system
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
