@@ -15,6 +15,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Prepublish actions
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "yarn"
+      - run: yarn install
+      - run: yarn compile
+
       - name: Publish
         id: publish
         uses: JS-DevTools/npm-publish@v1
