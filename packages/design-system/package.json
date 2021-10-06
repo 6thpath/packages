@@ -1,6 +1,6 @@
 {
   "name": "@6thpath/design-system",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "GNU GPL V3.0",
   "author": {
     "email": "tienphat1501@gmail.com",
@@ -14,6 +14,7 @@
     "@6thpath:registry": "https://npm.pkg.github.com/"
   },
   "main": "index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": "./index.js",
     "./": "./css/"
@@ -22,6 +23,7 @@
     "node": ">=14"
   },
   "scripts": {
+    "postinstall": "tsc",
     "compile": "tsc",
     "lint": "eslint '**/*.{js,ts,tsx}' --quiet --fix"
   },
@@ -48,7 +50,8 @@
   },
   "eslintConfig": {
     "root": true,
-    "extends": "@6thpath/eslint-config/common"
+    "extends": "@6thpath/eslint-config/common",
+    "ignorePatterns": "dist/**/*"
   },
   "prettier": "@6thpath/prettier-config",
   "husky": {
