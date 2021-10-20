@@ -1,8 +1,17 @@
 {
-  "name": "packages",
-  "description": "My packages",
+  "name": "@6thpath/packages",
+  "description": "Personal packages",
   "version": "1.0.0",
   "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "web/*"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
   "author": {
     "email": "tienphat1501@gmail.com",
     "name": "Phát Mai"
@@ -15,9 +24,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap --ci"
+    "clean": "make clean"
   },
-  "devDependencies": {
-    "lerna": "^4.0.0"
-  }
+  "packageManager": "yarn@3.0.2"
 }
