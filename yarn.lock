@@ -5,7 +5,7 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"@6thpath/design-system@^2.0.3, @6thpath/design-system@workspace:packages/design-system":
+"@6thpath/design-system@^2.0.4, @6thpath/design-system@workspace:packages/design-system":
   version: 0.0.0-use.local
   resolution: "@6thpath/design-system@workspace:packages/design-system"
   dependencies:
@@ -29,7 +29,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@6thpath/eslint-config@^1.0.4, @6thpath/eslint-config@^1.0.5, @6thpath/eslint-config@workspace:packages/eslint-config":
+"@6thpath/eslint-config@^1.0.5, @6thpath/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@6thpath/eslint-config@workspace:packages/eslint-config"
   dependencies:
@@ -1849,14 +1849,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "design-system-demo@workspace:web/design-system-demo"
   dependencies:
-    "@6thpath/design-system": ^2.0.3
-    "@6thpath/eslint-config": ^1.0.4
+    "@6thpath/design-system": ^2.0.4
+    "@6thpath/eslint-config": ^1.0.5
     "@types/react": 17.0.30
     autoprefixer: 10.3.7
     eslint: 7.32.0
     eslint-config-next: 11.1.2
     next: 11.1.2
-    postcss: 8.3.9
+    postcss: 8.3.10
     postcss-import: ^14.0.2
     react: 17.0.2
     react-dom: 17.0.2
@@ -3947,7 +3947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.23, nanoid@npm:^3.1.28":
+"nanoid@npm:^3.1.23, nanoid@npm:^3.1.28, nanoid@npm:^3.1.30":
   version: 3.1.30
   resolution: "nanoid@npm:3.1.30"
   bin:
@@ -4756,14 +4756,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.3.9, postcss@npm:^8.1.6, postcss@npm:^8.2.1":
-  version: 8.3.9
-  resolution: "postcss@npm:8.3.9"
+"postcss@npm:8.3.10":
+  version: 8.3.10
+  resolution: "postcss@npm:8.3.10"
   dependencies:
-    nanoid: ^3.1.28
-    picocolors: ^0.2.1
+    nanoid: ^3.1.30
+    picocolors: ^1.0.0
     source-map-js: ^0.6.2
-  checksum: b64d0e59bc027b2f09e5a84ca32b4f0620553812110e42295a79fd0e6ea664779e575c2d5e8d35a1b0804f0933ec878404c6e161e008b5bc51cba44eaef216ef
+  checksum: 9f6f5ddb403fb52cacf502bd42ee7a1b9df9b362db5e68e7129e643511bcdda429bbccf5d27e6d115dd4f0a61c811e6b28a91d2db3cf57ff8825e5a7166cbbd0
   languageName: node
   linkType: hard
 
@@ -4775,6 +4775,17 @@ __metadata:
     source-map: ^0.6.1
     supports-color: ^5.4.0
   checksum: cc6cb2c1dbcdefa6f57a71d67fe535c9e96543298bbe28f9a6a64c4f1e21b6127113890dd4cda8873d3f4e6613a0566b7b4bbb230204f3a9a309190bda065d81
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.1.6, postcss@npm:^8.2.1":
+  version: 8.3.9
+  resolution: "postcss@npm:8.3.9"
+  dependencies:
+    nanoid: ^3.1.28
+    picocolors: ^0.2.1
+    source-map-js: ^0.6.2
+  checksum: b64d0e59bc027b2f09e5a84ca32b4f0620553812110e42295a79fd0e6ea664779e575c2d5e8d35a1b0804f0933ec878404c6e161e008b5bc51cba44eaef216ef
   languageName: node
   linkType: hard
 
