@@ -17,3 +17,7 @@
 - name: prettier-config
   description: Something changed in prettier-config package
   color: efb43b
+
+- name: design-system-demo
+  description: Something changed in design-system-demo website
+  color: 35a2b3

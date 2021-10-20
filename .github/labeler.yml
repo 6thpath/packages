@@ -12,3 +12,6 @@ eslint-config:
 
 prettier-config:
   - packages/prettier-config/**/*
+
+design-system-demo:
+  - web/design-system-demo/**/*
