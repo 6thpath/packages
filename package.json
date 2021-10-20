@@ -7,9 +7,6 @@
     "packages": [
       "packages/*",
       "web/*"
-    ],
-    "nohoist": [
-      "**/web"
     ]
   },
   "author": {
