@@ -27,7 +27,7 @@ jobs:
 
       - name: Setup and compile Typescript types
         run: |
-          yarn install --focus --frozen-lockfile
+          yarn install --frozen-lockfile
           yarn compile
         working-directory: packages/design-system
         env:
