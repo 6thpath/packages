@@ -9,7 +9,7 @@
       "web/*"
     ],
     "nohoist": [
-      "**"
+      "**/web"
     ]
   },
   "author": {
