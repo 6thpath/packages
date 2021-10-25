@@ -1,11 +1,14 @@
-clean_root_node:
+clean_node_modules:
 	rm -rf ./node_modules
-
-clean_node:
 	rm -rf ./**/*/node_modules
 
-clean_packages_dists:
+clean_build:
 	rm -rf ./packages/*/dist
+	rm -rf ./web/design-system-demo/.next
 
+clean: clean_node_modules clean_build
 
-clean: clean_root_node clean_node clean_packages_dists
+main:
+	git checkout main
+	git fetch --prune
+	git pull
