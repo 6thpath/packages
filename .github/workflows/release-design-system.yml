@@ -27,7 +27,7 @@ jobs:
 
       - name: Setup and compile Typescript types
         run: |
-          yarn install --frozen-lockfile
+          yarn install --immutable-cache
           yarn compile
         working-directory: packages/design-system
         env:
@@ -72,7 +72,7 @@ jobs:
           tag_name: design-system-v${{ steps.publish.outputs.version }}
           body: |
             Version ${{ steps.publish.outputs.version }}
-          draft: true
+          draft: false
           prerelease: false
 
       - name: Log release URL
