@@ -77,7 +77,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            :white_check_mark:  ![Preview site deployment succeeded](https://dsd-${{ github.event.number }}-preview.surge.sh)
+            :white_check_mark:  [Preview site deployment succeeded](https://dsd-${{ github.event.number }}-preview.surge.sh)
             <!-- PR_AUTO_PREVIEW -->
           body-include: "<!-- PR_AUTO_PREVIEW -->"
 
