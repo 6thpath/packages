@@ -1,10 +1,12 @@
-name: Pull Request Labeler
+name: Label PR
 
 on:
-  - pull_request_target
+  pull_request_target:
+    types: [opened, ready_for_review, reopened, synchronize]
 
 jobs:
   triage:
+    name: Triage PR
     runs-on: ubuntu-latest
 
     steps:
