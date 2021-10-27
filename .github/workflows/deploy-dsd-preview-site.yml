@@ -1,0 +1,117 @@
+name: Deploy design-system-demo preview site
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened, synchronize]
+    branches:
+      - main
+    paths:
+      - web/design-system-demo/**
+
+jobs:
+  notify:
+    name: Notify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Add comment
+        uses: actions-cool/maintain-one-comment@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            :rocket: Preview site deployment is preparing
+            <!-- PR_AUTO_PREVIEW -->
+          body-include: "<!-- PR_AUTO_PREVIEW -->"
+
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "yarn"
+          registry-url: https://npm.pkg.github.com/
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Install dependencies
+        working-directory: web/design-system-demo
+        run: yarn install --immutable-cache
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+  build:
+    name: Build Preview Site
+    runs-on: ubuntu-latest
+    needs: setup
+    if: always() && needs.setup.result != 'failure'
+
+    outputs:
+      pr_id: ${{ steps.export_pr_id.outputs.pr_id }}
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@2
+
+      - name: Build
+        id: build
+        working-directory: web/design-system-demo
+        run: yarn static
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: preview-site-artifact
+          path: web/design-system-demo/static/
+          retention-days: 3
+
+      - name: Export PR number
+        id: export_pr_id
+        if: ${{ always() }}
+        working-directory: web/design-system-demo
+        run: echo "::set-output name=pr_id::${{ github.event.number }}"
+
+  deploy:
+    name: Deploy Preview Site
+    runs-on: ubuntu-latest
+    needs: build
+    if: always() && needs.build.result != 'failure'
+
+    steps:
+      - name: Download site artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          pr: needs.build.outputs.pr_id
+          name: preview-site-artifact
+          path: temp
+
+      - name: Upload preview site to Surge
+        id: deploy
+        run: |
+          export DEPLOY_DOMAIN=https://preview-${{ needs.build.outputs.pr_id }}-dsd.surge.sh
+          npx surge --project ./temp/preview-site-artifact --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Update comment status
+        uses: actions-cool/maintain-one-comment@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            [:white_check_mark: Preview site deployment succeeded](https://preview-${{ needs.build.outputs.pr_id }}-dsd.surge.sh)
+            <!-- PR_AUTO_PREVIEW -->
+          body-include: "<!-- PR_AUTO_PREVIEW -->"
+
+      - name: The job has failed
+        if: ${{ failure() }}
+        uses: actions-cool/maintain-one-comment@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            :x: Preview site deployment failed
+            <!-- PR_AUTO_PREVIEW -->
+          body-include: "<!-- PR_AUTO_PREVIEW -->"

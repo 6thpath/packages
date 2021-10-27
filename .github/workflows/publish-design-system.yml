@@ -1,4 +1,4 @@
-name: Publish Prettier Config
+name: Publish Design system
 
 on:
   workflow_dispatch:
@@ -6,15 +6,33 @@ on:
     branches:
       - main
     paths:
-      - packages/prettier-config/**
+      - packages/design-system/**
 
 jobs:
-  Publish-Package:
+  publish:
+    name: Publish Package
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "yarn"
+          registry-url: https://npm.pkg.github.com/
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Install dependencies and compile
+        run: |
+          yarn install --immutable-cache
+          yarn compile
+        working-directory: packages/design-system
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Publish
         id: publish
@@ -22,7 +40,7 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           registry: https://npm.pkg.github.com/
-          package: packages/prettier-config/package.json
+          package: packages/design-system/package.json
 
       - name: Create tag
         if: steps.publish.outputs.type != 'none'
@@ -31,7 +49,7 @@ jobs:
           NEXT_VERSION: ${{ steps.publish.outputs.version }}
         with:
           script: |
-            const newTag = `prettier-config-v${process.env.NEXT_VERSION}`
+            const newTag = `design-system-v${process.env.NEXT_VERSION}`
 
             try {
               core.debug(`Tagging #${context.sha} with tag ${newTag}`);
@@ -52,7 +70,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: prettier-config-v${{ steps.publish.outputs.version }}
+          tag_name: design-system-v${{ steps.publish.outputs.version }}
           body: |
             Version ${{ steps.publish.outputs.version }}
           draft: false

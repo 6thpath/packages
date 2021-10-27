@@ -1,4 +1,4 @@
-name: Publish Eslint Config
+name: Publish Prettier config
 
 on:
   workflow_dispatch:
@@ -6,10 +6,11 @@ on:
     branches:
       - main
     paths:
-      - packages/eslint-config/**
+      - packages/prettier-config/**
 
 jobs:
-  Publish-Package:
+  publish:
+    name: Publish Package
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +23,7 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           registry: https://npm.pkg.github.com/
-          package: packages/eslint-config/package.json
+          package: packages/prettier-config/package.json
 
       - name: Create tag
         if: steps.publish.outputs.type != 'none'
@@ -31,7 +32,7 @@ jobs:
           NEXT_VERSION: ${{ steps.publish.outputs.version }}
         with:
           script: |
-            const newTag = `eslint-config-v${process.env.NEXT_VERSION}`
+            const newTag = `prettier-config-v${process.env.NEXT_VERSION}`
 
             try {
               core.debug(`Tagging #${context.sha} with tag ${newTag}`);
@@ -52,7 +53,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: eslint-config-v${{ steps.publish.outputs.version }}
+          tag_name: prettier-config-v${{ steps.publish.outputs.version }}
           body: |
             Version ${{ steps.publish.outputs.version }}
           draft: false

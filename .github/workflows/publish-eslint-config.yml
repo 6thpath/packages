@@ -1,4 +1,4 @@
-name: Publish Design System
+name: Publish Eslint config
 
 on:
   workflow_dispatch:
@@ -6,32 +6,16 @@ on:
     branches:
       - main
     paths:
-      - packages/design-system/**
+      - packages/eslint-config/**
 
 jobs:
-  Publish-Package:
+  publish:
+    name: Publish Package
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Prepublish actions
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-          cache: "yarn"
-          registry-url: https://npm.pkg.github.com/
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
-      - name: Setup and compile Typescript types
-        run: |
-          yarn install --immutable-cache
-          yarn compile
-        working-directory: packages/design-system
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Publish
         id: publish
@@ -39,7 +23,7 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           registry: https://npm.pkg.github.com/
-          package: packages/design-system/package.json
+          package: packages/eslint-config/package.json
 
       - name: Create tag
         if: steps.publish.outputs.type != 'none'
@@ -48,7 +32,7 @@ jobs:
           NEXT_VERSION: ${{ steps.publish.outputs.version }}
         with:
           script: |
-            const newTag = `design-system-v${process.env.NEXT_VERSION}`
+            const newTag = `eslint-config-v${process.env.NEXT_VERSION}`
 
             try {
               core.debug(`Tagging #${context.sha} with tag ${newTag}`);
@@ -69,7 +53,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: design-system-v${{ steps.publish.outputs.version }}
+          tag_name: eslint-config-v${{ steps.publish.outputs.version }}
           body: |
             Version ${{ steps.publish.outputs.version }}
           draft: false
