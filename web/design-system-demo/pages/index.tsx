@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <button className="button-solid-sm">abcd</button>
+      <button className="button-solid-md">abcd</button>
     </div>
   )
 }
