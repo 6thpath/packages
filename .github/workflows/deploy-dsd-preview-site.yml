@@ -102,6 +102,7 @@ jobs:
       - name: Download site artifact
         uses: dawidd6/action-download-artifact@v2
         with:
+          workflow: deploy-dsd-preview-site.yml
           pr: needs.build.outputs.pr_id
           name: preview-site-artifact
           path: temp
