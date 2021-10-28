@@ -43,7 +43,7 @@ jobs:
       - name: Install dependencies
         working-directory: web/design-system-demo
         run: |
-          yarn install --immutable-cache
+          yarn install
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
