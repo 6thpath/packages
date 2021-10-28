@@ -57,7 +57,6 @@ jobs:
       - name: Build
         working-directory: web/design-system-demo
         run: |
-          npx next telemetry disable
           yarn static
 
       - name: Deploy preview site to Surge
