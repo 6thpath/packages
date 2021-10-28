@@ -19,7 +19,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            :rocket:  Preview site deployment is preparing
+            :rocket: Preview site deployment is preparing
             <!-- PR_AUTO_PREVIEW -->
           body-include: "<!-- PR_AUTO_PREVIEW -->"
 
@@ -39,18 +39,18 @@ jobs:
           node-version: "14"
           cache: "yarn"
           registry-url: https://npm.pkg.github.com/
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Install dependencies
         working-directory: web/design-system-demo
-        run: yarn install --immutable-cache
+        run: |
+          yarn install --immutable-cache
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Build
         working-directory: web/design-system-demo
-        run: yarn static
+        run: |
+          yarn static
 
       - name: Deploy preview site to Surge
         working-directory: web/design-system-demo
@@ -58,12 +58,12 @@ jobs:
           export DEPLOY_DOMAIN=https://dsd-${{ github.event.number }}-preview.surge.sh
           npx surge --project ./build --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
-      - name: Upload site artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: preview-site-artifact
-          path: web/design-system-demo/static/
-          retention-days: 3
+      # - name: Upload site artifact
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: preview-site-artifact
+      #     path: web/design-system-demo/static/
+      #     retention-days: 3
 
   post-deploy:
     name: Update Deployment Status
@@ -71,22 +71,22 @@ jobs:
     needs: deploy
 
     steps:
-      - name: Update comment status
+      - name: Update comment status to success
         if: needs.deploy.result != 'failure'
         uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            :white_check_mark:  [Preview site deployment succeeded](https://dsd-${{ github.event.number }}-preview.surge.sh)
+            :white_check_mark: [Preview site deployment succeeded](https://dsd-${{ github.event.number }}-preview.surge.sh)
             <!-- PR_AUTO_PREVIEW -->
           body-include: "<!-- PR_AUTO_PREVIEW -->"
 
-      - name: The job has failed
+      - name: Update comment status to failure
         if: needs.deploy.result == 'failure'
         uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            :x:  Preview site deployment failed
+            :x: Preview site deployment failed
             <!-- PR_AUTO_PREVIEW -->
           body-include: "<!-- PR_AUTO_PREVIEW -->"

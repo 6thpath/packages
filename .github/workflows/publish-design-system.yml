@@ -23,16 +23,18 @@ jobs:
           node-version: "14"
           cache: "yarn"
           registry-url: https://npm.pkg.github.com/
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
-      - name: Install dependencies and compile
+      - name: Install dependencies
         run: |
           yarn install --immutable-cache
-          yarn compile
         working-directory: packages/design-system
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Compile
+        run: |
+          yarn compile
+        working-directory: packages/design-system
 
       - name: Publish
         id: publish
