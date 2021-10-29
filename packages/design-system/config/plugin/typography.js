@@ -1,24 +1,41 @@
 const plugin = require('tailwindcss/plugin')
 
-/**
- * [type, [font-size, line-height]]
- */
-const headingStyleMapping = [
-  ['h1', [40, 48]],
-  ['h2', [32, 40]],
-  ['h3', [28, 36]],
-  ['h4', [24, 32]],
-  ['h5', [20, 24]],
-  ['h6', [14, 18]],
+const headingTextStyleMapping = [
+  {
+    htmlTag: 'h1',
+    styles: { fontSize: 52, lineHeight: '67.6px', letterSpacing: 'wider' },
+  },
+  {
+    htmlTag: 'h2',
+    styles: { fontSize: 40, lineHeight: '52px', letterSpacing: 'wider' },
+  },
+  {
+    htmlTag: 'h3',
+    styles: { fontSize: 36, lineHeight: '50.4px', letterSpacing: 'wider' },
+  },
+  {
+    htmlTag: 'h4',
+    styles: { fontSize: 24, lineHeight: '33.6px', letterSpacing: 'wider' },
+  },
+  {
+    htmlTag: 'h5',
+    styles: { fontSize: 18, lineHeight: '25.2px', letterSpacing: 'normal' },
+  },
+  {
+    htmlTag: 'h6',
+    styles: { fontSize: 16, lineHeight: '22.4px', letterSpacing: 'normal' },
+  },
 ]
 
-const baseTypographyPlugin = plugin(({ addBase, theme }) => {
+const typographyPlugin = plugin(({ addBase, theme }) => {
   addBase(
-    headingStyleMapping.reduce(
-      (accumulator, [headingType, [fontSize, lineHeight]]) => (
-        (accumulator[headingType] = {
-          fontSize: theme(`fontSize.${fontSize}`),
-          lineHeight: theme(`lineHeight.${lineHeight}`),
+    headingTextStyleMapping.reduce(
+      (accumulator, { htmlTag, styles }) => (
+        (accumulator[htmlTag] = {
+          fontSize: theme(`fontSize.${styles.fontSize}`),
+          fontWeight: theme('fontWeight.bold'),
+          lineHeight: styles.lineHeight,
+          letterSpacing: theme(`letterSpacing.${styles.letterSpacing}`),
         }),
         accumulator
       ),
@@ -28,5 +45,5 @@ const baseTypographyPlugin = plugin(({ addBase, theme }) => {
 })
 
 module.exports = {
-  baseTypographyPlugin,
+  typographyPlugin,
 }
