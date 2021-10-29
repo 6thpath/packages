@@ -1,7 +1,8 @@
 module.exports = {
   fontFamily: {
-    dosis: [
-      'Dosis',
+    primary: [
+      'Quicksand',
+      'system-ui',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
@@ -15,6 +16,6 @@ module.exports = {
       '"Segoe UI Symbol"',
       '"Noto Color Emoji"',
     ],
-    raleway: ['Raleway', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+    secondary: ['Cabin', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
   },
 }
