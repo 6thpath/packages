@@ -7,7 +7,7 @@ const spacingVariables = [
 module.exports = {
   spacing: spacingVariables.reduce(
     (accumulator, variable) => (
-      (accumulator[variable * coefficient] = `${variable * coefficient}px`), accumulator
+      (accumulator[`${variable * coefficient}`] = `${variable * coefficient}px`), accumulator
     ),
     { px: '1px' }
   ),
