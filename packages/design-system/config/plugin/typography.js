@@ -27,23 +27,21 @@ const headingTextStyleMapping = [
   },
 ]
 
-const typographyPlugin = plugin(({ addBase, theme }) => {
-  addBase(
-    headingTextStyleMapping.reduce(
-      (accumulator, { htmlTag, styles }) => (
-        (accumulator[htmlTag] = {
-          fontSize: theme(`fontSize.${styles.fontSize}`),
-          fontWeight: theme('fontWeight.bold'),
-          lineHeight: styles.lineHeight,
-          letterSpacing: theme(`letterSpacing.${styles.letterSpacing}`),
-        }),
-        accumulator
-      ),
-      {}
-    )
-  )
-})
-
 module.exports = {
-  typographyPlugin,
+  typographyPlugin: plugin(({ addBase, theme }) => {
+    addBase(
+      headingTextStyleMapping.reduce(
+        (accumulator, { htmlTag, styles }) => (
+          (accumulator[htmlTag] = {
+            fontSize: theme(`fontSize.${styles.fontSize}`),
+            fontWeight: theme('fontWeight.bold'),
+            lineHeight: styles.lineHeight,
+            letterSpacing: theme(`letterSpacing.${styles.letterSpacing}`),
+          }),
+          accumulator
+        ),
+        {}
+      )
+    )
+  }),
 }
