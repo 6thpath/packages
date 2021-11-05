@@ -2,17 +2,23 @@
 
 ## Usage
 
+### Installation
+
+```bash
+yarn add @6thpath/design-system
+```
+
 ### Quickstart
 
 - Use default Tailwindcss config + default Postcss config, create `postcss.config.js`:
 
 ```js
-module.exports = require('@6thpath/design-system').postcssConfig.baseConfig
+module.exports = require("@6thpath/design-system").postcssConfig.baseConfig;
 ```
 
 ### Advanced
 
-- Install [Tailwindcss extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) and [PostCSS Language Support extension](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
+- **(VSCode)** Install [Tailwindcss extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) and [PostCSS Language Support extension](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
 
   - Add these settings to _.vscode/settings.json_
 
@@ -31,15 +37,16 @@ module.exports = require('@6thpath/design-system').postcssConfig.baseConfig
   - Use default:
 
   ```js
-  module.exports = require('@6thpath/design-system').tailwindConfig.baseConfig
+  module.exports = require("@6thpath/design-system").tailwindConfig.baseConfig;
   ```
 
-  - Custom [Tailwindcss config](https://tailwindcss.com/docs):
+  - Customise [Tailwindcss config](https://tailwindcss.com/docs):
 
   ```js
-  module.exports = require('@6thpath/design-system').tailwindConfig.generateTailwindConfig({
-    // tailwind configs
-  })
+  module.exports =
+    require("@6thpath/design-system").tailwindConfig.extendConfig({
+      // ... Tailwindcss configs
+    });
   ```
 
 - Create `postcss.config.js`
@@ -47,24 +54,27 @@ module.exports = require('@6thpath/design-system').postcssConfig.baseConfig
   - Add config below:
 
   ```js
-  module.exports = require('@6thpath/design-system').postcssConfig.generatePostCSSConfig({
-    tailwindConfig: require('./tailwind.config'),
-    postcssConfig: {
-      // postcss configs
-    },
-  })
+  module.exports = require("@6thpath/design-system").postcssConfig.extendConfig(
+    {
+      tailwindConfig: require("./tailwind.config"),
+      postcssConfig: {
+        // ... Postcss configs
+      },
+    }
+  );
   ```
 
 ## Useful links
 
-### Colors
+### Other color reference ideas
 
 - [Tailwind colors](https://tailwindcss.com/docs/customizing-colors)
 - [AntDesign colors](https://ant.design/docs/spec/colors)
 - [Color wheel](https://www.canva.com/colors/color-wheel/)
 
-### Plugins
+### Tailwind plugins
 
-- [Line clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+- [Typography](https://github.com/tailwindlabs/tailwindcss-typography)
 - [Forms](https://github.com/tailwindlabs/tailwindcss-forms)
-  - [Demo](https://tailwindcss-forms.vercel.app/)
+- [Line clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+- [Aspect ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
