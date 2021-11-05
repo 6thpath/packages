@@ -5,25 +5,44 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"@6thpath/design-system@^2.0.4, @6thpath/design-system@workspace:packages/design-system":
-  version: 0.0.0-use.local
-  resolution: "@6thpath/design-system@workspace:packages/design-system"
+"@6thpath/design-system@npm:^2.0.4":
+  version: 2.0.5
+  resolution: "@6thpath/design-system@npm:2.0.5::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%406thpath%2Fdesign-system%2F2.0.5%2F2c8b9cf04db610a1313cc1f59a023e6b6c93a888afa8930a80cdedf488b62365"
   dependencies:
-    "@6thpath/eslint-config": ^1.0.5
     "@ctrl/tinycolor": 3.4.0
     "@tailwindcss/forms": 0.3.4
     "@tailwindcss/line-clamp": 0.2.2
     "@tailwindcss/postcss7-compat": 2.2.17
     autoprefixer: 9.8.8
     deepmerge: 4.2.2
-    eslint: 7.32.0
-    husky: 7.0.2
-    lint-staged: 11.2.3
     postcss: 7.0.39
     postcss-custom-properties: 10.0.0
     postcss-import: 12.0.1
     postcss-nested: 4.2.3
     tailwindcss: "npm:@tailwindcss/postcss7-compat@2.2.17"
+  checksum: 61f67833cd22de4593866d60d1631ba2e7236ff848ffe423a353bc13bcf4b4e28bda1f99f181f06fd191fe184c3566f369d9de9decff0fe63c3bc1cf4ca6bd80
+  languageName: node
+  linkType: hard
+
+"@6thpath/design-system@workspace:packages/design-system":
+  version: 0.0.0-use.local
+  resolution: "@6thpath/design-system@workspace:packages/design-system"
+  dependencies:
+    "@6thpath/eslint-config": ^1.0.5
+    "@tailwindcss/aspect-ratio": ^0.3.0
+    "@tailwindcss/forms": ^0.3.4
+    "@tailwindcss/line-clamp": ^0.2.2
+    "@types/tailwindcss": ^2.2.3
+    autoprefixer: 10.4.0
+    deepmerge: 4.2.2
+    eslint: 7.32.0
+    husky: 7.0.4
+    lint-staged: 11.2.6
+    postcss: 8.3.11
+    postcss-custom-properties: 12.0.0
+    postcss-import: 14.0.2
+    postcss-nested: 5.0.6
+    tailwindcss: 2.2.19
     typescript: 4.4.4
   languageName: unknown
   linkType: soft
@@ -384,7 +403,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/forms@npm:0.3.4":
+"@tailwindcss/aspect-ratio@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@tailwindcss/aspect-ratio@npm:0.3.0"
+  peerDependencies:
+    tailwindcss: ">=2.0.0 || >=3.0.0-alpha.1"
+  checksum: f863da71ba3920ebcb96057ca9d446b0b40addbcd0b6c0631fc33625eaeb10c8aeb92f333bb8bae2db2fd025d9895e06582fce2d1fb2e35420a27bb0a6f994f7
+  languageName: node
+  linkType: hard
+
+"@tailwindcss/forms@npm:0.3.4, @tailwindcss/forms@npm:^0.3.4":
   version: 0.3.4
   resolution: "@tailwindcss/forms@npm:0.3.4"
   dependencies:
@@ -395,7 +423,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/line-clamp@npm:0.2.2":
+"@tailwindcss/line-clamp@npm:0.2.2, @tailwindcss/line-clamp@npm:^0.2.2":
   version: 0.2.2
   resolution: "@tailwindcss/line-clamp@npm:0.2.2"
   peerDependencies:
@@ -507,6 +535,13 @@ __metadata:
   version: 0.16.2
   resolution: "@types/scheduler@npm:0.16.2"
   checksum: b6b4dcfeae6deba2e06a70941860fb1435730576d3689225a421280b7742318d1548b3d22c1f66ab68e414f346a9542f29240bc955b6332c5b11e561077583bc
+  languageName: node
+  linkType: hard
+
+"@types/tailwindcss@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@types/tailwindcss@npm:2.2.3"
+  checksum: 19756ac216ef912d25dbd76fd8890ce6eb9273eb6a8ea3a796a29b9e2cfbc3d8dd5feca44452d6cee837d6d2765f41fe58e35c61c46cc695d819c95ae86bad9a
   languageName: node
   linkType: hard
 
@@ -930,6 +965,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"autoprefixer@npm:10.4.0":
+  version: 10.4.0
+  resolution: "autoprefixer@npm:10.4.0"
+  dependencies:
+    browserslist: ^4.17.5
+    caniuse-lite: ^1.0.30001272
+    fraction.js: ^4.1.1
+    normalize-range: ^0.1.2
+    picocolors: ^1.0.0
+    postcss-value-parser: ^4.1.0
+  peerDependencies:
+    postcss: ^8.1.0
+  bin:
+    autoprefixer: bin/autoprefixer
+  checksum: 7d511c64daeaa13c7888b40b0394cd891fab1852a1f60165330c9e49ab70ac29ad1e3386665d86361661cf2bbe90cea42b78ea73cb77b373ffe30a8f4973a955
+  languageName: node
+  linkType: hard
+
 "autoprefixer@npm:9.8.8, autoprefixer@npm:^9":
   version: 9.8.8
   resolution: "autoprefixer@npm:9.8.8"
@@ -1124,7 +1177,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.12.0, browserslist@npm:^4.17.3":
+"browserslist@npm:^4.12.0, browserslist@npm:^4.17.3, browserslist@npm:^4.17.5":
   version: 4.17.5
   resolution: "browserslist@npm:4.17.5"
   dependencies:
@@ -1231,7 +1284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001202, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001228, caniuse-lite@npm:^1.0.30001264, caniuse-lite@npm:^1.0.30001271":
+"caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001202, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001228, caniuse-lite@npm:^1.0.30001264, caniuse-lite@npm:^1.0.30001271, caniuse-lite@npm:^1.0.30001272":
   version: 1.0.30001272
   resolution: "caniuse-lite@npm:1.0.30001272"
   checksum: 5a08fc35ae298acef6846111634201bde7b4710fe0ccabb69ad5681115f77971265d9b6b5cd9bb976bc44d8d6ff0119cb28d9032753e063a2c70e1e30b630ad9
@@ -2869,12 +2922,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:7.0.2":
-  version: 7.0.2
-  resolution: "husky@npm:7.0.2"
+"husky@npm:7.0.4":
+  version: 7.0.4
+  resolution: "husky@npm:7.0.4"
   bin:
     husky: lib/bin.js
-  checksum: 2ccfe6ddc51dc05ae8ea1e2fbb893344e93a813e00c595d6b5f5e704b7b998d6b0e2adda7c57f99b5e46a60dc07c7d860269a2ea91661c6bacef0eca8e0b8e96
+  checksum: c6ec4af63da2c9522da8674a20ad9b48362cc92704896cc8a58c6a2a39d797feb2b806f93fbd83a6d653fbdceb2c3b6e0b602c6b2e8565206ffc2882ef7db9e9
   languageName: node
   linkType: hard
 
@@ -3429,9 +3482,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:11.2.3":
-  version: 11.2.3
-  resolution: "lint-staged@npm:11.2.3"
+"lint-staged@npm:11.2.6":
+  version: 11.2.6
+  resolution: "lint-staged@npm:11.2.6"
   dependencies:
     cli-truncate: 2.1.0
     colorette: ^1.4.0
@@ -3449,7 +3502,7 @@ __metadata:
     supports-color: 8.1.1
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: cf3a1612a8cb3790030fb1eaf98071b97be0c71e9ee87f2f65741321974178e9b15b480dac695bb126d2cd8751dd7d72071b13d7ea0e1a97a735d88bd3cc8bb7
+  checksum: b9071621db351c553579bd18df3d80fb753f851c4f1f72db0aaf12e713eab25b6d8a044dab2957817de7da02054a63f7725a49c763aee09295133f0d554f4d3f
   languageName: node
   linkType: hard
 
@@ -4466,6 +4519,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-custom-properties@npm:12.0.0":
+  version: 12.0.0
+  resolution: "postcss-custom-properties@npm:12.0.0"
+  dependencies:
+    postcss-values-parser: ^6
+  peerDependencies:
+    postcss: ^8.3
+  checksum: 6b06287f1f88f828b4fba60f6081019dc8428e227b807c225903cadb4776d3b30cd6e9e87130522ae4a8f188fc8b757f68699b9e80ab5b3ddb3c31d0dade691c
+  languageName: node
+  linkType: hard
+
 "postcss-functions@npm:^3":
   version: 3.0.0
   resolution: "postcss-functions@npm:3.0.0"
@@ -4490,7 +4554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-import@npm:^14.0.2":
+"postcss-import@npm:14.0.2, postcss-import@npm:^14.0.2":
   version: 14.0.2
   resolution: "postcss-import@npm:14.0.2"
   dependencies:
@@ -4595,6 +4659,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-values-parser@npm:^6":
+  version: 6.0.1
+  resolution: "postcss-values-parser@npm:6.0.1"
+  dependencies:
+    color-name: ^1.1.4
+    is-url-superb: ^4.0.0
+    quote-unquote: ^1.0.0
+  peerDependencies:
+    postcss: ^8.2.9
+  checksum: 367d108bb6ff20415683380a3ef707a7090792e91c4c20a8a20727937094c1b1441a10418c4ac2e1665f44d98353742e529982c92697ebaf4db081d03fedfb71
+  languageName: node
+  linkType: hard
+
 "postcss@npm:7.0.39, postcss@npm:^7, postcss@npm:^7.0.1, postcss@npm:^7.0.17, postcss@npm:^7.0.18, postcss@npm:^7.0.32, postcss@npm:^7.0.5":
   version: 7.0.39
   resolution: "postcss@npm:7.0.39"
@@ -4627,6 +4704,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss@npm:8.3.11, postcss@npm:^8.1.6, postcss@npm:^8.2.1":
+  version: 8.3.11
+  resolution: "postcss@npm:8.3.11"
+  dependencies:
+    nanoid: ^3.1.30
+    picocolors: ^1.0.0
+    source-map-js: ^0.6.2
+  checksum: 1a230553d74c66aa9585c90781ed8ea75f19cefea405d2117b67fbeb24b5b5e0e17be2e0c5a07db31dd085643a13394127ab2222e940771b70498331bf20f35e
+  languageName: node
+  linkType: hard
+
 "postcss@npm:^6.0.9":
   version: 6.0.23
   resolution: "postcss@npm:6.0.23"
@@ -4635,17 +4723,6 @@ __metadata:
     source-map: ^0.6.1
     supports-color: ^5.4.0
   checksum: cc6cb2c1dbcdefa6f57a71d67fe535c9e96543298bbe28f9a6a64c4f1e21b6127113890dd4cda8873d3f4e6613a0566b7b4bbb230204f3a9a309190bda065d81
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^8.1.6, postcss@npm:^8.2.1":
-  version: 8.3.11
-  resolution: "postcss@npm:8.3.11"
-  dependencies:
-    nanoid: ^3.1.30
-    picocolors: ^1.0.0
-    source-map-js: ^0.6.2
-  checksum: 1a230553d74c66aa9585c90781ed8ea75f19cefea405d2117b67fbeb24b5b5e0e17be2e0c5a07db31dd085643a13394127ab2222e940771b70498331bf20f35e
   languageName: node
   linkType: hard
 
@@ -4820,6 +4897,13 @@ __metadata:
   version: 5.1.1
   resolution: "quick-lru@npm:5.1.1"
   checksum: a516faa25574be7947969883e6068dbe4aa19e8ef8e8e0fd96cddd6d36485e9106d85c0041a27153286b0770b381328f4072aa40d3b18a19f5f7d2b78b94b5ed
+  languageName: node
+  linkType: hard
+
+"quote-unquote@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "quote-unquote@npm:1.0.0"
+  checksum: 955a2ead534f5b6a3f8d4dc5a4b95ac6468213d3fb11f8c1592a0a56345c45a3d14d5ca04d3de2bc9891493fcac38c03dfa91c48a6159aef50124e9c5afcea49
   languageName: node
   linkType: hard
 
@@ -5707,6 +5791,52 @@ resolve@^2.0.0-next.3:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
   checksum: a0bff1a014f5283676faca321a60c6e97c5512d42f3fe89aae04dffde2b1425c47b7cc3562ee16a9d748fb5cb3a2b8782845c6d8c815de293c4ed6c035b024b0
+  languageName: node
+  linkType: hard
+
+"tailwindcss@npm:2.2.19":
+  version: 2.2.19
+  resolution: "tailwindcss@npm:2.2.19"
+  dependencies:
+    arg: ^5.0.1
+    bytes: ^3.0.0
+    chalk: ^4.1.2
+    chokidar: ^3.5.2
+    color: ^4.0.1
+    cosmiconfig: ^7.0.1
+    detective: ^5.2.0
+    didyoumean: ^1.2.2
+    dlv: ^1.1.3
+    fast-glob: ^3.2.7
+    fs-extra: ^10.0.0
+    glob-parent: ^6.0.1
+    html-tags: ^3.1.0
+    is-color-stop: ^1.1.0
+    is-glob: ^4.0.1
+    lodash: ^4.17.21
+    lodash.topath: ^4.5.2
+    modern-normalize: ^1.1.0
+    node-emoji: ^1.11.0
+    normalize-path: ^3.0.0
+    object-hash: ^2.2.0
+    postcss-js: ^3.0.3
+    postcss-load-config: ^3.1.0
+    postcss-nested: 5.0.6
+    postcss-selector-parser: ^6.0.6
+    postcss-value-parser: ^4.1.0
+    pretty-hrtime: ^1.0.3
+    purgecss: ^4.0.3
+    quick-lru: ^5.1.1
+    reduce-css-calc: ^2.1.8
+    resolve: ^1.20.0
+    tmp: ^0.2.1
+  peerDependencies:
+    autoprefixer: ^10.0.2
+    postcss: ^8.0.9
+  bin:
+    tailwind: lib/cli.js
+    tailwindcss: lib/cli.js
+  checksum: 660e8086fa2758f273b7ec87067c041185454374c5c916c236f9691b1c60c48166b2556b6327b3d912f018f48712105fa979b7f717b2db3111ea0850059a2b62
   languageName: node
   linkType: hard
 

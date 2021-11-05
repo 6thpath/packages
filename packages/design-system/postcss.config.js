@@ -13,12 +13,12 @@ const baseConfig = {
   ],
 }
 
-function generatePostCSSConfig(config = { tailwindConfig: {}, postcssConfig: {} }) {
-  if (config.tailwindConfig && !isEmptyObject(config.tailwindConfig)) {
+function extendConfig(config = { tailwindConfig: {}, postcssConfig: {} }) {
+  if (!isEmptyObject(config?.tailwindConfig)) {
     baseConfig.plugins[1] = require('tailwindcss')(config.tailwindConfig)
   }
 
-  if (config.postcssConfig && !isEmptyObject(config.postcssConfig)) {
+  if (!isEmptyObject(config?.postcssConfig)) {
     return merge(baseConfig, config.postcssConfig, {
       arrayMerge: overwriteMerge,
     })
@@ -29,5 +29,5 @@ function generatePostCSSConfig(config = { tailwindConfig: {}, postcssConfig: {} 
 
 module.exports = {
   baseConfig,
-  generatePostCSSConfig,
+  extendConfig,
 }
