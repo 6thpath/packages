@@ -10,11 +10,9 @@ const { fontSize } = require('./config/theme/fontSize')
 const { lineHeight } = require('./config/theme/lineHeight')
 const { spacing } = require('./config/theme/spacing')
 
-const { buttonPlugin } = require('./config/plugin/button')
-const { baseTypographyPlugin } = require('./config/plugin/typography')
+const { typographyPlugin } = require('./config/plugin/typography')
 
 const baseConfig = {
-  // mode: 'jit', // ! not available at the moment
   purge: [],
   darkMode: 'class',
   theme: {
@@ -27,24 +25,18 @@ const baseConfig = {
       fontFamily,
     },
   },
-  variants: {
-    extend: {
-      backgroundColor: ['active', 'disabled'],
-      borderColor: ['active', 'disabled'],
-      brightness: ['hover', 'active'],
-      filter: ['hover', 'active'],
-      textColor: ['active', 'disabled'],
-    },
-  },
   plugins: [
-    require('@tailwindcss/line-clamp'),
+    // ref: https://github.com/tailwindlabs/tailwindcss-forms
     require('@tailwindcss/forms'),
-    buttonPlugin,
-    baseTypographyPlugin,
+    // ref: https://github.com/tailwindlabs/tailwindcss-line-clamp
+    require('@tailwindcss/line-clamp'),
+    // ref: https://github.com/tailwindlabs/tailwindcss-aspect-ratio
+    require('@tailwindcss/aspect-ratio'),
+    typographyPlugin,
   ],
 }
 
-function generateTailwindConfig(config = {}) {
+function extendConfig(config = {}) {
   if (!isEmptyObject(config)) {
     return merge(baseConfig, config, {
       customMerge: (key) => {
@@ -60,5 +52,5 @@ function generateTailwindConfig(config = {}) {
 
 module.exports = {
   baseConfig,
-  generateTailwindConfig,
+  extendConfig,
 }
