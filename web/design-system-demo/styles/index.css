@@ -1,3 +1,5 @@
-@import "@6thpath/design-system/css/base";
-@import "@6thpath/design-system/css/components";
-@import "@6thpath/design-system/css/utilities";
+@import "@6thpath/design-system/css";
+
+body {
+  @apply font-primary;
+}
