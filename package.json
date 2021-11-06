@@ -3,25 +3,25 @@
   "description": "Personal packages",
   "version": "1.0.0",
   "private": true,
+  "author": {
+    "email": "tienphat1501@gmail.com",
+    "name": "Phát Mai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/6thpath/packages.git"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "packageManager": "yarn@3.0.2",
   "workspaces": {
     "packages": [
       "packages/*",
       "web/*"
     ]
   },
-  "author": {
-    "email": "tienphat1501@gmail.com",
-    "name": "Phát Mai"
-  },
-  "repository": {
-    "url": "https://github.com/6thpath/packages.git",
-    "type": "git"
-  },
-  "engines": {
-    "node": ">=14"
-  },
   "scripts": {
     "clean": "make clean"
-  },
-  "packageManager": "yarn@3.0.2"
+  }
 }
