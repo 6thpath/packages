@@ -1,6 +1,6 @@
 {
   "name": "@6thpath/design-system",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "GNU GPL V3.0",
   "author": {
     "email": "tienphat1501@gmail.com",
@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/6thpath/packages.git"
+    "url": "https://github.com/6thpath/packages.git",
+    "directory": "packages/design-system"
   },
   "publishConfig": {
     "@6thpath:registry": "https://npm.pkg.github.com/"
@@ -41,26 +42,18 @@
     "tailwindcss": "2.2.19"
   },
   "devDependencies": {
-    "@6thpath/eslint-config": "^1.0.5",
-    "@types/tailwindcss": "^2.2.3",
+    "@6thpath/eslint-config": "^2.0.0",
+    "@ctrl/tinycolor": "^3.4.0",
+    "@types/tailwindcss": "^2.2.4",
     "eslint": "7.32.0",
-    "husky": "7.0.4",
-    "lint-staged": "11.2.6",
     "typescript": "4.4.4"
   },
   "eslintConfig": {
     "root": true,
     "extends": "@6thpath/eslint-config/common",
+    "rules": {
+      "@typescript-eslint/no-var-requires": "off"
+    },
     "ignorePatterns": "dist/**/*"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.{js,ts,tsx}": [
-      "eslint --fix"
-    ]
   }
 }
