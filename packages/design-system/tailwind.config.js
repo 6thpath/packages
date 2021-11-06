@@ -7,6 +7,8 @@ const { borderRadius } = require('./config/theme/borderRadius')
 const { colors } = require('./config/theme/colors')
 const { fontFamily } = require('./config/theme/fontFamily')
 const { fontSize } = require('./config/theme/fontSize')
+const { fontWeight } = require('./config/theme/fontWeight')
+const { letterSpacing } = require('./config/theme/letterSpacing')
 const { lineHeight } = require('./config/theme/lineHeight')
 const { spacing } = require('./config/theme/spacing')
 
@@ -19,6 +21,8 @@ const baseConfig = {
     borderRadius,
     colors,
     fontSize,
+    fontWeight,
+    letterSpacing,
     lineHeight,
     spacing,
     extend: {
