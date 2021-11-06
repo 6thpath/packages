@@ -5,7 +5,7 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"@6thpath/design-system@^3.0.2, @6thpath/design-system@workspace:packages/design-system":
+"@6thpath/design-system@^3.0.3, @6thpath/design-system@workspace:packages/design-system":
   version: 0.0.0-use.local
   resolution: "@6thpath/design-system@workspace:packages/design-system"
   dependencies:
@@ -1725,7 +1725,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "design-system-demo@workspace:web/design-system-demo"
   dependencies:
-    "@6thpath/design-system": ^3.0.2
+    "@6thpath/design-system": ^3.0.3
     "@6thpath/eslint-config": ^2.0.0
     "@types/react": 17.0.34
     eslint: 7.32.0
