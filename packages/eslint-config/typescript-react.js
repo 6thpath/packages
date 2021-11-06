@@ -5,17 +5,17 @@ const baseConfig = require('./typescript')
 module.exports = merge(
   baseConfig,
   {
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true, // Allows for the parsing of JSX
-      },
-    },
+    extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
     settings: {
       react: {
         version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
       },
     },
-    extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true, // Allows for the parsing of JSX
+      },
+    },
     rules: {
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-var-requires': 'off',
@@ -46,7 +46,7 @@ module.exports = merge(
   {
     customMerge: (key) => {
       if (key === 'extends') {
-        return (basePlugins, reactPlugins) => [...reactPlugins, ...basePlugins]
+        return (basePlugins, eslintReactPlugins) => [...eslintReactPlugins, ...basePlugins]
       }
     },
   }
