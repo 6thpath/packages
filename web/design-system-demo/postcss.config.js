@@ -1,10 +1,3 @@
-module.exports = require('@6thpath/design-system').postcssConfig.generatePostCSSConfig({
+module.exports = require('@6thpath/design-system').postcssConfig.extendConfig({
   tailwindConfig: require('./tailwind.config'),
-  postcssConfig: {
-    plugins: {
-      'postcss-import': {},
-      tailwindcss: require('./tailwind.config'),
-      autoprefixer: {},
-    },
-  },
 })
