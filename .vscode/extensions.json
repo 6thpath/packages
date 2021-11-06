@@ -1,9 +1,16 @@
 {
   "recommendations": [
+    // Tailwind support for design-system package
     "bradlc.vscode-tailwindcss",
+    // Eslint
     "rvest.vs-code-prettier-eslint",
+    // Prettier
     "esbenp.prettier-vscode",
+    // For web-components package
+    "runem.lit-plugin",
+    // Highlights comments
     "aaron-bond.better-comments",
+    // Detects redundant spacings
     "shardulm94.trailing-spaces"
   ]
 }
