@@ -2,7 +2,7 @@
 
 ## Requisite
 
-- Node version **14 or later**
+- Node version **16 or later**
 - Yarn
 
 ### Important
