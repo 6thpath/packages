@@ -1,7 +1,7 @@
 {
   "name": "@6thpath/prettier-config",
-  "description": "Prettier config",
-  "version": "1.0.2",
+  "description": "Prettier configurations",
+  "version": "1.0.0",
   "license": "MIT",
   "author": {
     "email": "tienphat1501@gmail.com",
@@ -15,5 +15,5 @@
   "publishConfig": {
     "@6thpath:registry": "https://npm.pkg.github.com/"
   },
-  "main": ".prettierrc.json"
+  "main": ".prettierrc.js"
 }
