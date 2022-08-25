@@ -37,7 +37,7 @@ jobs:
             try {
               core.debug(`Tagging #${context.sha} with tag ${newTag}`);
 
-              github.git.createRef({
+              octokit.rest.git.createRef({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 ref: `refs/tags/${newTag}`,
