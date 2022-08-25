@@ -37,8 +37,6 @@ jobs:
             try {
               core.debug(`Tagging #${context.sha} with tag ${newTag}`);
 
-              console.log(github)
-
               github.rest.git.createRef({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
