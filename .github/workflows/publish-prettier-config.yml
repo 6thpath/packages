@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Publish
         id: publish
@@ -27,7 +27,7 @@ jobs:
 
       - name: Create tag
         if: steps.publish.outputs.type != 'none'
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         env:
           NEXT_VERSION: ${{ steps.publish.outputs.version }}
         with:
@@ -51,7 +51,7 @@ jobs:
       - name: Create Release
         if: steps.publish.outputs.type != 'none'
         id: create_release
-        uses: softprops/action-gh-release@v1
+        uses: 6thpath/action-github-release@v1
         with:
           tag_name: prettier-config-v${{ steps.publish.outputs.version }}
           body: |
