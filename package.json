@@ -11,8 +11,13 @@
     "type": "git",
     "url": "https://github.com/6thpath/packages.git"
   },
+  "bugs": {
+    "email": "tienphat1501@gmail.com",
+    "url": "https://github.com/6thpath/packages/issues"
+  },
+  "homepage": "https://github.com/6thpath/packages",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "packageManager": "yarn@3.2.2",
   "workspaces": {
